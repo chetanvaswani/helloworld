@@ -25,7 +25,10 @@ jobs:
             - run: |
                 echo "${{ secrets.SSH_KEY }}" &> ~/ssh_key
                 chmod 700 /home/runner/ssh_key
-                ssh -o StrictHostKeyChecking=no -i ~/ssh_key ubuntu@${{ secrets.SERVER_IP }} -t "sudo docker stop helloworld || true && sudo docker rm helloworld || true && sudo docker run -d --name helloworld -p 3000:3000 chetanvaswani/helloworld:${{ github.sha }}"
+                ssh -o StrictHostKeyChecking=no -i ~/ssh_key ubuntu@${{ secrets.SERVER_IP }} -t "
+                sudo docker stop helloworld &&
+                sudo docker rm helloworld &&
+                sudo docker run -d --name helloworld -p 3000:3000 chetanvaswani/helloworld:${{ github.sha }}"
 
 
 
