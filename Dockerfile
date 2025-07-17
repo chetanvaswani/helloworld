@@ -10,4 +10,6 @@ COPY . .
 
 EXPOSE 3000
 
-CMD ["bun", "start"]
+RUN npm install pm2 -g
+
+CMD ["bun", "index.js"]
