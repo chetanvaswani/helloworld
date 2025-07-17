@@ -18,4 +18,4 @@ jobs:
              cd helloworld || exit
              git pull
              bun install
-             pm2 restart helloworld
+            #  pm2 restart helloworld
